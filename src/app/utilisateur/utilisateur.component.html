@@ -1,0 +1,4 @@
+<p [ngStyle]="{color: utilisateur?.email ? 'blue' : 'red'}">
+  {{ utilisateur ? utilisateur.nom : '' }} - {{ utilisateur ? utilisateur.email : '' }}
+</p>
+<button (click)="direCoucou()">Coucou</button>
