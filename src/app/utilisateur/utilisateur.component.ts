@@ -12,7 +12,9 @@ export class UtilisateurComponent {
   utilisateur: Utilisateur | undefined = undefined;
 
   @Output()
-  coucou = new EventEmitter<string>();
+  coucou = new EventEmitter<string | null>();
+
+  maDate = new Date();
 
   direCoucou() {
     this.coucou.emit(this.utilisateur ? this.utilisateur.prenom : 'Pas de prénom');

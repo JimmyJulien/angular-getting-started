@@ -1,4 +1,9 @@
-<p [ngStyle]="{color: utilisateur?.email ? 'blue' : 'red'}">
-  {{ utilisateur ? utilisateur.nom : '' }} - {{ utilisateur ? utilisateur.email : '' }}
-</p>
+<div [ngClass]="utilisateur | appTest">
+
+  <div>{{ utilisateur | appFormatUtilisateur:'//////' }}</div>
+
+  <div>{{ maDate | date:'dd/MM/yyyy' | json }}</div>
+
+</div>
+
 <button (click)="direCoucou()">Coucou</button>

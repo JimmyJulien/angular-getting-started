@@ -1,5 +1,18 @@
 <app-nouveau *ngIf="estNouveau" [titre]="title.code!" (coucou)="direCoucou($event)"></app-nouveau>
 
+<form [formGroup]="form">
+
+  <input type="text" formControlName="test">
+  <span *ngIf="form.get('test')?.hasError('required')">Champ obligatoire</span>
+
+  <select formControlName="test2">
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+  </select>
+  <div>Formulaire valide = {{ form.valid }}</div>
+</form>
+
 <app-utilisateur
   *ngFor="let utilisateur of utilisateurs"
   [utilisateur]="utilisateur"
