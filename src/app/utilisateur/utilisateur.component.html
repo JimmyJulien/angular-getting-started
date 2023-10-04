@@ -1,9 +1,3 @@
-<div [ngClass]="utilisateur | appTest">
-
-  <div>{{ utilisateur | appFormatUtilisateur:'//////' }}</div>
-
-  <div>{{ maDate | date:'dd/MM/yyyy' | json }}</div>
-
-</div>
-
+<div [ngClass]="utilisateur | appTest">{{ utilisateur | appFormatUtilisateur }}</div>
+<!-- <div>{{ maDate | date:'dd/MM/yyyy' | json }}</div> -->
 <button (click)="direCoucou()">Coucou</button>
