@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { EMPTY, Observable, catchError, mergeMap, tap } from 'rxjs';
-import { AppService } from '../app.service';
-import { Utilisateur } from '../utilisateur.interface';
+import { Utilisateur } from '../../interfaces/utilisateur.interface';
+import { UtilisateursService } from '../../services/utilisateurs.service';
 
 @Component({
   selector: 'app-page-utilisateurs',
@@ -13,7 +14,7 @@ export class PageUtilisateursComponent {
   utilisateurs: Utilisateur[] = [];
   utilisateurSelectionne: Utilisateur | undefined = undefined;
   
-  constructor(private appService: AppService) {}
+  constructor(private appService: UtilisateursService, private router: Router) {}
 
   ngOnInit(): void {
     this.appService.getUtilisateurs()

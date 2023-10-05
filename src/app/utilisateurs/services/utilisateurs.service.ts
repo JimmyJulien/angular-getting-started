@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { EMPTY, Observable, catchError, mergeMap, of, tap } from 'rxjs';
-import { Utilisateur } from './utilisateur.interface';
+import { Utilisateur } from '../interfaces/utilisateur.interface';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AppService {
+export class UtilisateursService {
 
   private readonly URL_API = 'api/utilisateurs';
 

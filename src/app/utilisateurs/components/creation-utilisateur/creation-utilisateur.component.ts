@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormControl, NonNullableFormBuilder, Validators } from '@angular/forms';
-import { Utilisateur } from '../utilisateur.interface';
+import { Utilisateur } from '../../interfaces/utilisateur.interface';
 
 @Component({
   selector: 'app-creation-utilisateur',

@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Utilisateur } from './utilisateur.interface';
+import { Utilisateur } from '../interfaces/utilisateur.interface';
 
 @Pipe({
   name: 'appFormatUtilisateur'

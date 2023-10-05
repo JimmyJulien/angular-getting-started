@@ -6,30 +6,22 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CreationUtilisateurComponent } from './creation-utilisateur/creation-utilisateur.component';
-import { FormatUtilisateurPipe } from './format-utilisateur.pipe';
-import { NouveauComponent } from './nouveau/nouveau.component';
-import { TestPipe } from './test.pipe';
-import { UtilisateurData } from './utilisateur-data';
-import { UtilisateurComponent } from './utilisateur/utilisateur.component';
-import { PageUtilisateursComponent } from './page-utilisateurs/page-utilisateurs.component';
+import { DbData } from './core/db-data';
+import { LoginComponent } from './core/login/login.component';
+import { UtilisateursModule } from './utilisateurs/utilisateurs.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    NouveauComponent,
-    UtilisateurComponent,
-    TestPipe,
-    FormatUtilisateurPipe,
-    CreationUtilisateurComponent,
-    PageUtilisateursComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
+    UtilisateursModule,
+    LoginComponent,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    InMemoryWebApiModule.forRoot(UtilisateurData),
+    InMemoryWebApiModule.forRoot(DbData),
   ],
   providers: [
     
