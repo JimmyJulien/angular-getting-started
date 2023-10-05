@@ -11,7 +11,7 @@ export class FormatUtilisateurPipe implements PipeTransform {
     if(!utilisateur || (!utilisateur.nom && !utilisateur.prenom && !utilisateur.email))
       return defaut;
 
-    const nom = utilisateur.nom || '';
+    const nom = utilisateur.nom?.toUpperCase() || '';
 
     const prenom = utilisateur.prenom || '';
 

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { EMPTY, Observable, catchError, mergeMap, tap } from 'rxjs';
 import { Utilisateur } from '../../interfaces/utilisateur.interface';
 import { UtilisateursService } from '../../services/utilisateurs.service';
@@ -14,10 +13,10 @@ export class PageUtilisateursComponent {
   utilisateurs: Utilisateur[] = [];
   utilisateurSelectionne: Utilisateur | undefined = undefined;
   
-  constructor(private appService: UtilisateursService, private router: Router) {}
+  constructor(private utilisateursService: UtilisateursService) {}
 
   ngOnInit(): void {
-    this.appService.getUtilisateurs()
+    this.utilisateursService.getUtilisateurs()
     .pipe(
       catchError((erreur: Error) => {
         console.error(erreur.message);
@@ -29,19 +28,19 @@ export class PageUtilisateursComponent {
   }
 
   direCoucou(coucou: string | null) {
-    this.appService.direCoucou(coucou);
+    this.utilisateursService.direCoucou(coucou);
   }
 
   ajouterUtilisateur(utilisateur: Utilisateur) {
     this.executeEtRefresh(
-      this.appService.ajouterUtilisateur(utilisateur)
+      this.utilisateursService.ajouterUtilisateur(utilisateur)
     )
     .subscribe();
   }
 
   modifierUtilisateur(utilisateurAModifier: Utilisateur) {
     this.executeEtRefresh(
-      this.appService.modifierUtilisateur(utilisateurAModifier)
+      this.utilisateursService.modifierUtilisateur(utilisateurAModifier)
     )
     .subscribe();
   }
@@ -52,7 +51,7 @@ export class PageUtilisateursComponent {
 
   supprimerUtilisateur(id: number) {
     this.executeEtRefresh(
-      this.appService.supprimerUtilisateur(id)
+      this.utilisateursService.supprimerUtilisateur(id)
     )
     .subscribe();
   }
@@ -60,7 +59,7 @@ export class PageUtilisateursComponent {
   private executeEtRefresh(source$: Observable<Utilisateur | void>): Observable<Utilisateur[]> {
     return source$
     .pipe(
-      mergeMap(() => this.appService.getUtilisateurs()),
+      mergeMap(() => this.utilisateursService.getUtilisateurs()),
       tap(utilisateurs => {
         if(!utilisateurs) throw new Error('Tap a un problème !!!');
         this.utilisateurs = utilisateurs;
