@@ -1,0 +1,26 @@
+<!-- AJOUT -->
+<div>AJOUT</div>
+<app-creation-utilisateur (creerUtilisateur)="ajouterUtilisateur($event)"></app-creation-utilisateur>
+
+<!-- MODIFICATION -->
+<ng-container *ngIf="utilisateurSelectionne">
+  <div>MODIFICATION</div>
+  <app-creation-utilisateur
+    [utilisateur]="utilisateurSelectionne"
+    (creerUtilisateur)="ajouterUtilisateur($event)"
+    (modifierUtilisateur)="modifierUtilisateur($event)">
+  </app-creation-utilisateur>
+</ng-container>
+
+<div class="utilisateurs">
+  <div class="utilisateurs__titre">Liste utilisateurs :</div>
+  <div class="utilisateurs__liste">
+    <app-utilisateur
+      *ngFor="let utilisateur of utilisateurs"
+      [utilisateur]="utilisateur"
+      (coucou)="direCoucou($event)"
+      (selection)="selectionnerUtilisateur(utilisateur)"
+      (suppression)="supprimerUtilisateur(utilisateur.id)">
+    </app-utilisateur>
+  </div>
+</div>

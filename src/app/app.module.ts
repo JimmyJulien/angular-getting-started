@@ -12,6 +12,7 @@ import { NouveauComponent } from './nouveau/nouveau.component';
 import { TestPipe } from './test.pipe';
 import { UtilisateurData } from './utilisateur-data';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
+import { PageUtilisateursComponent } from './page-utilisateurs/page-utilisateurs.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { UtilisateurComponent } from './utilisateur/utilisateur.component';
     UtilisateurComponent,
     TestPipe,
     FormatUtilisateurPipe,
-    CreationUtilisateurComponent
+    CreationUtilisateurComponent,
+    PageUtilisateursComponent
   ],
   imports: [
     BrowserModule,

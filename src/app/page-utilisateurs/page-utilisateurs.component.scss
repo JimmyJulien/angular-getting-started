@@ -1,0 +1,14 @@
+.utilisateurs {
+  margin: 1rem 0;
+
+  .utilisateurs__titre {
+    font-weight: bold;
+    margin: 0.5rem 0;
+  }
+
+  .utilisateurs__liste {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
