@@ -5,11 +5,11 @@
   <span *ngIf="nomCtrl.dirty && nomCtrl?.hasError(CONTIENT)">{{ERREUR_COUCOU}}</span>
   
   <input [formControlName]="PRENOM">
-  <span *ngIf="controlePrenom?.dirty && controlePrenom?.hasError(REQUIRED)">{{OBLIGATOIRE}}</span>
+  <span *ngIf="prenomCtrl?.dirty && prenomCtrl?.hasError(REQUIRED)">{{OBLIGATOIRE}}</span>
   
   <input [formControlName]="EMAIL">
 
-  <button type="submit" [disabled]="!formulaire.valid">{{AJOUTER}}</button>
+  <button type="submit" [disabled]="!formulaire.valid">{{nomBouton}}</button>
 </form>
 
 <pre>Valeur : {{ formulaire.value | json }}</pre>

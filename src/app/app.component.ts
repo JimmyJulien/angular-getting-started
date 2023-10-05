@@ -9,12 +9,13 @@ import { Utilisateur } from './utilisateur.interface';
 })
 export class AppComponent implements OnInit {
   
-  utilisateurs: Utilisateur[] = this.appService.getUtilisateurs();
+  utilisateurs: Utilisateur[] = [];
+  utilisateurSelectionne: Utilisateur | undefined = undefined;
   
   constructor(private appService: AppService) {}
 
   ngOnInit(): void {
-    this.appService.getTest().subscribe();
+    this.appService.getUtilisateurs().subscribe(utilisateurs => this.utilisateurs = utilisateurs);
   }
 
   direCoucou(coucou: string | null) {
@@ -22,6 +23,24 @@ export class AppComponent implements OnInit {
   }
 
   ajouterUtilisateur(utilisateur: Utilisateur) {
-    this.appService.ajouterUtilisateur(utilisateur);
+    this.appService.ajouterUtilisateur(utilisateur).subscribe(utilisateur => this.utilisateurs.push(utilisateur));
+  }
+
+  modifierUtilisateur(utilisateurAModifier: Utilisateur) {
+    this.appService.modifierUtilisateur(utilisateurAModifier).subscribe(() => {
+      const nouveauxUtilisateurs = [...this.utilisateurs].filter(utilisateur => utilisateur.id !== utilisateurAModifier.id);
+      nouveauxUtilisateurs.push(utilisateurAModifier);
+      this.utilisateurs = nouveauxUtilisateurs;
+    });
+  }
+
+  selectionnerUtilisateur(utilisateur: Utilisateur) {
+    this.utilisateurSelectionne = utilisateur;
+  }
+
+  supprimerUtilisateur(id: number) {
+    this.appService.supprimerUtilisateur(id).subscribe(() => {
+      this.utilisateurs = [...this.utilisateurs].filter(utilisateur => utilisateur.id !== id);
+    });
   }
 }

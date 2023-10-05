@@ -14,10 +14,24 @@ export class UtilisateurComponent {
   @Output()
   coucou = new EventEmitter<string | null>();
 
+  @Output()
+  selection = new EventEmitter<void>();
+
+  @Output()
+  suppression = new EventEmitter<void>();
+
   maDate = new Date();
 
   direCoucou() {
     this.coucou.emit(this.utilisateur ? this.utilisateur.prenom : 'Pas de prénom');
+  }
+
+  selectionner() {
+    this.selection.emit();
+  }
+
+  supprimer() {
+    this.suppression.emit();
   }
   
 }
