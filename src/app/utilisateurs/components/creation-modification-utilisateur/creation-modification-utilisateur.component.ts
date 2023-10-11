@@ -120,6 +120,9 @@ export class CreationModificationUtilisateurComponent implements OnChanges {
         email: this.formulaire.controls.email.value,
       });
     }
+
+    // On reset le formulaire
+    this.formulaire.reset();
   }
 
 }

@@ -39,7 +39,7 @@ describe('CreationModificationUtilisateurComponent', () => {
   // Tests de la méthode soumettreFormulaire
   describe('soumettreFormulaire', () => {
     it(`
-      doit émettre un évènement modifierUtilisateur
+      doit émettre un évènement modifierUtilisateur et reset le formulaire
       quand un utilisateur est défini
     `, () => {
       // GIVEN
@@ -68,10 +68,13 @@ describe('CreationModificationUtilisateurComponent', () => {
         prenom: 'prenom',
         email: 'nom.prenom@mail.fr',
       });
+      expect(component.formulaire.controls.nom.value).toBeNull();
+      expect(component.formulaire.controls.prenom.value).toBeNull();
+      expect(component.formulaire.controls.email.value).toBeNull();
     })
 
     it(`
-    doit émettre un évènement creerUtilisateur
+    doit émettre un évènement creerUtilisateur et reset le formulaire
     quand aucun utilisateur n'est défini
     `, () => {
       // GIVEN
@@ -82,6 +85,9 @@ describe('CreationModificationUtilisateurComponent', () => {
       
       // THEN
       expect(creerUtilisateurEmitSpy).toHaveBeenCalledTimes(1);
+      expect(component.formulaire.controls.nom.value).toBeNull();
+      expect(component.formulaire.controls.prenom.value).toBeNull();
+      expect(component.formulaire.controls.email.value).toBeNull();
     });
   });
 });

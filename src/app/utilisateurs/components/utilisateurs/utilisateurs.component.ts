@@ -71,6 +71,10 @@ export class UtilisateursComponent {
     // On exécute l'ajout puis on refresh les utilisateurs
     this.executerActionEtRechargerUtilisateurs(
       this.utilisateursService.ajouterUtilisateur(utilisateurACreer)
+      .pipe(
+        // On reset l'utilisateur sélectionné pour masquer le bloc de modification
+        tap(() => this.utilisateurSelectionne = undefined)
+      )
     )
     .subscribe();
   }
