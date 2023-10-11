@@ -1,5 +1,13 @@
-<div [ngClass]="utilisateur | appTest">{{ utilisateur | appFormatUtilisateur }}</div>
-<!-- <div>{{ maDate | date:'dd/MM/yyyy' | json }}</div> -->
-<button (click)="direCoucou()">Coucou</button>
-<button (click)="selectionner()">Sélectionner</button>
-<button (click)="supprimer()">Supprimer</button>
+<!-- Affichage de l'utilisateur -->
+<!-- On applique un pipe pour la couleur et un pipe pour le format -->
+<div class="utilisateur" [ngClass]="utilisateur | appCouleurUtilisateur">
+  {{ utilisateur | appFormatUtilisateur }}
+</div>
+
+<!-- Bouton Sélectionner -->
+<!-- NOTE : on utilise directement l'EventEmitter de sélection ici -->
+<button (click)="selection.emit()">Sélectionner</button>
+
+<!-- Bouton supprimer -->
+<!-- NOTE : on utilise directement l'EventEmitter de supppression ici -->
+<button (click)="suppression.emit()">Supprimer</button>

@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+/* Fichier de style global (voir bonnes pratiques dans la formation Angular Styling) */
+
+// Ajustement de la hauteur de l'écran pour qu'il prenne toute la hauteur disponible
+body, html {
+  height: 100%;
+}
+
+// Mixin permettant de factoriser l'utilisation des composants flex
+@mixin flex($direction: row, $align-items: null, $justify-content: null, $gap: null) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align-items;
+  justify-content: $justify-content;
+  gap: $gap;
+}

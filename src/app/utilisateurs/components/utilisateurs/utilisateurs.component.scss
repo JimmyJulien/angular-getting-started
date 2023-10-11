@@ -1,0 +1,15 @@
+@use './../../../../styles.scss' as global;
+
+.utilisateurs {
+  margin: 1rem;
+
+  .utilisateurs__titre {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+  }
+
+  .utilisateurs__liste {
+    @include global.flex($direction:column, $gap:0.5rem);
+  }
+}

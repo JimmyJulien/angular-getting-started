@@ -1,6 +1,11 @@
+@use './../../../../styles.scss' as global;
+
 :host {
-  display: flex;
-  gap: 0.5rem;
+  @include global.flex($gap:0.5rem);
+}
+
+.utilisateur {
+  font-size: 1.1rem;
 }
 
 .bleu {

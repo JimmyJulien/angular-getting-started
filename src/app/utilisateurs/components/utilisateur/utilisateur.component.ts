@@ -8,30 +8,13 @@ import { Utilisateur } from '../../interfaces/utilisateur.interface';
 })
 export class UtilisateurComponent {
 
-  @Input()
-  utilisateur: Utilisateur | undefined = undefined;
+  /** Utilisateur passé par le parent */
+  @Input() utilisateur: Utilisateur | undefined = undefined;
 
-  @Output()
-  coucou = new EventEmitter<string | null>();
+  /** Emitter qui émet un évènement de sélection */
+  @Output() selection = new EventEmitter<void>();
 
-  @Output()
-  selection = new EventEmitter<void>();
+  /** Emitter qui émet un évènement de suppression */
+  @Output() suppression = new EventEmitter<void>();
 
-  @Output()
-  suppression = new EventEmitter<void>();
-
-  maDate = new Date();
-
-  direCoucou() {
-    this.coucou.emit(this.utilisateur ? this.utilisateur.prenom : 'Pas de prénom');
-  }
-
-  selectionner() {
-    this.selection.emit();
-  }
-
-  supprimer() {
-    this.suppression.emit();
-  }
-  
 }

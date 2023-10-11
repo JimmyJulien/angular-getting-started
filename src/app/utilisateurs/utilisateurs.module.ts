@@ -1,23 +1,25 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
-import { CreationUtilisateurComponent } from './components/creation-utilisateur/creation-utilisateur.component';
-import { PageUtilisateursComponent } from './components/page-utilisateurs/page-utilisateurs.component';
+import { SharedModule } from '../shared/shared.module';
+import { CreationModificationUtilisateurComponent } from './components/creation-modification-utilisateur/creation-modification-utilisateur.component';
 import { UtilisateurComponent } from './components/utilisateur/utilisateur.component';
+import { UtilisateursComponent } from './components/utilisateurs/utilisateurs.component';
+import { CouleurUtilisateurPipe } from './pipes/couleur-utilisateur.pipe';
 import { FormatUtilisateurPipe } from './pipes/format-utilisateur.pipe';
-import { TestPipe } from './pipes/test.pipe';
 
+/**
+ * Module de la fonctionnalités des Utilisateurs
+ */
 @NgModule({
+  // Composants, directives et pipes utilisés par le module Utilisateurs
   declarations: [
-    CreationUtilisateurComponent,
-    PageUtilisateursComponent,
+    CreationModificationUtilisateurComponent,
+    UtilisateursComponent,
     UtilisateurComponent,
-    TestPipe,
+    CouleurUtilisateurPipe,
     FormatUtilisateurPipe
   ],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-  ]
+  // Modules importés (ici le SHaredModule qui donne accès au CommonModule
+  // et au ReactiveFormsModule)
+  imports: [SharedModule]
 })
 export class UtilisateursModule { }

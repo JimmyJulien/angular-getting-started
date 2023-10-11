@@ -1,0 +1,38 @@
+@use './../../../../../styles.scss' as global;
+
+:host {
+  height: 100%;
+  @include global.flex($align-items:center, $justify-content:center);
+}
+
+.formulaire {
+  @include global.flex($direction:column, $gap:2rem);
+  padding: 1rem;
+  border: 2px solid;
+
+  .formulaire__champ {
+    @include global.flex($direction:column, $gap:0.5rem);
+
+    .formulaire__champ__label {
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+
+    .formulaire__champ__input {
+      min-height: 1.5rem;
+      font-size: 1rem;
+    }
+
+    .formulaire__champ__erreur {
+      font-weight: bold;
+      font-size: 0.9rem;
+      color: red;
+    }
+  }
+
+  .formulaire__bouton {
+    min-height: 2rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+}

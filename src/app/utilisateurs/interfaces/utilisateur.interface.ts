@@ -1,3 +1,6 @@
+/**
+ * Interface représentant un utilisateur
+ */
 export interface Utilisateur {
   id: number;
   nom: string | null;

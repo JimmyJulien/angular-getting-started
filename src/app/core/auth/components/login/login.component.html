@@ -1,0 +1,31 @@
+<!-- Formulaire -->
+<form class="formulaire" [formGroup]="loginForm">
+  <!-- Email (sert de login dans notre cas) -->
+  <div class="formulaire__champ">
+    <label class="formulaire__champ__label">Email</label>
+    <input class="formulaire__champ__input" [formControlName]="EMAIL" type="text">
+    <!-- Gestion des erreurs liées aux validateurs du champ email -->
+    <span *ngIf="emailCtrl.touched && emailCtrl.hasError('required')" class="formulaire__champ__erreur">
+      {{MSG_ERR_CHAMP_OBLIGATOIRE}}
+    </span>
+    <span *ngIf="emailCtrl.touched && emailCtrl.hasError('email')" class="formulaire__champ__erreur">
+      {{MSG_ERR_FORMAT_EMAIL}}
+    </span>
+  </div>
+
+  <!-- Mot de passe -->
+  <div class="formulaire__champ">
+    <label class="formulaire__champ__label">Mot de passe</label>
+    <input class="formulaire__champ__input" [formControlName]="MOT_DE_PASSE" type="password">
+    <!-- Gestion des erreurs liées aux validateurs du champ motDePasse -->
+    <span *ngIf="motDePasseCtrl.touched && motDePasseCtrl.hasError('required')" class="formulaire__champ__erreur">
+      {{MSG_ERR_CHAMP_OBLIGATOIRE}}
+    </span>
+    <span *ngIf="motDePasseCtrl.touched && motDePasseCtrl.hasError('pattern')" class="formulaire__champ__erreur">
+      {{MSG_ERR_FORMAT_MDP}}
+    </span>
+  </div>
+
+  <!-- Bouton de soumission du formulaire -->
+  <button class="formulaire__bouton" [disabled]="!loginForm.valid" (click)="login()">Login</button>
+</form>

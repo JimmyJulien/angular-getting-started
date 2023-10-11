@@ -1,0 +1,51 @@
+<!-- Formulaire -->
+<form class="formulaire" [formGroup]="formulaire">
+  <!-- Titre -->
+  <h2>{{nomBouton | uppercase}}</h2>
+
+  <!-- Champ Nom -->
+  <div class="formulaire__champ">
+    <label class="formulaire__champ__label">Nom</label>
+    <input class="formulaire__champ__input" [formControlName]="NOM">
+    <!-- Gestion erreurs -->
+    <span *ngIf="nomCtrl.touched && nomCtrl.hasError(REQUIRED)" class="formulaire__champ__erreur">
+      {{MSG_ERR_CHAMP_OBLIGATOIRE}}
+    </span>
+    <span *ngIf="nomCtrl.touched && nomCtrl.hasError(CONTIENT)" class="formulaire__champ__erreur">
+      {{MSG_ERR_COUCOU}}
+    </span>
+  </div>
+  
+  <!-- Champ Prénom -->
+  <div class="formulaire__champ">
+    <label class="formulaire__champ__label">Prénom</label>
+    <input class="formulaire__champ__input" [formControlName]="PRENOM">
+    <!-- Gestion erreurs -->
+    <span *ngIf="prenomCtrl.touched && prenomCtrl.hasError(REQUIRED)" class="formulaire__champ__erreur">
+      {{MSG_ERR_CHAMP_OBLIGATOIRE}}
+    </span>
+  </div>
+  
+  <!-- Champ Email -->
+  <div class="formulaire__champ">
+    <label class="formulaire__champ__label">Email</label>
+    <input class="formulaire__champ__input" [formControlName]="EMAIL">
+    <!-- Gestion erreurs -->
+    <span *ngIf="emailCtrl.touched && emailCtrl.hasError(EMAIL)" class="formulaire__champ__erreur">
+      {{MSG_ERR_EMAIL}}
+    </span>
+  </div>
+
+  <!-- Bouton soumission formulaire -->
+  <button class="formulaire__bouton" [disabled]="!formulaire.valid" (click)="soumettreFormulaire()">{{nomBouton}}</button>
+</form>
+
+<!-- NOTE: à décommenter pour observer en temps réel l'évolution du formulaire
+<pre>
+  Valeur : {{ formulaire.value | json }}
+  Valid : {{ formulaire.valid }}
+  Disabled : {{ formulaire.disabled }}
+  Touched : {{ formulaire.touched }}
+  Dirty : {{ formulaire.dirty }}
+</pre>
+-->
